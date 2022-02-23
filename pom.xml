@@ -21,6 +21,12 @@
         <module>TP6</module>
         <module>TypesComplexes</module>
         <module>TP7</module>
+        <module>TP8</module>
+        <module>TP9</module>
+        <module>TP10</module>
+        <module>TP11</module>
+        <module>TP12</module>
+        <module>TP13</module>
     </modules>
 
     <dependencies>

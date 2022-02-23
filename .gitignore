@@ -1,4 +1,9 @@
+**/logs
+**/.idea
 **/target
-**.impl
+**/.settings
+**.iml
 **.war
-*/logs
+**.classpath
+**.project
+**.jar

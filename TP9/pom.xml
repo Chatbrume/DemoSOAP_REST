@@ -9,11 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.objis.demo.rest.tp7</groupId>
-    <artifactId>TP7</artifactId>
-    <version>1.0</version>
+    <groupId>com.objis.demo.rest.tp9</groupId>
+    <artifactId>TP9</artifactId>
     <packaging>war</packaging>
-    <url>http://localhost:8080/demorest</url>
+    <url>http://localhost:8080/restfulexample</url>
 
     <dependencies>
         <dependency>
@@ -26,10 +25,15 @@
             <artifactId>jersey-json</artifactId>
             <version>1.8</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-json-org</artifactId>
+            <version>2.13.1</version>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>demorest</finalName>
+        <finalName>restfulexample</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -50,7 +54,7 @@
                     <version>2.2</version>
                     <configuration>
                         <uriEncoding>UTF-8</uriEncoding>
-                        <path>/demorest</path>
+                        <path>/restfulexample</path>
                         <update>true</update>
                     </configuration>
                 </plugin>
