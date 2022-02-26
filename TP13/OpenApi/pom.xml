@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>TP13</artifactId>
+        <groupId>com.objis.demo.tp13</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.objis.demo.tp13.api</groupId>
+    <artifactId>OpenApi</artifactId>
+    <packaging>war</packaging>
+    <name>Open API Server</name>
+
+    <build>
+        <finalName>OpenApiServer</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.openapitools</groupId>
+                    <artifactId>openapi-generator-maven-plugin</artifactId>
+                    <version>5.1.0</version>
+                    <executions>
+                        <execution>
+                            <id>generate-client</id>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                            <phase>process-resources</phase>
+                            <configuration>
+                                <!--http://localhost:8080/demosoaprest/api/openapi.yaml-->
+                                <inputSpec>${project.basedir}/src/main/resources/openapi.yaml</inputSpec>
+                                <generatorName>java</generatorName>
+                                <generateApiDocumentation>false</generateApiDocumentation>
+                                <generateApiTests>false</generateApiTests>
+                                <generateSupportingFiles>true</generateSupportingFiles>
+                                <output>${project.basedir}/src/main/webapp</output>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <configuration>
+                        <filesets>
+                            <fileset>
+                                <directory>target</directory>
+                            </fileset>
+                        </filesets>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

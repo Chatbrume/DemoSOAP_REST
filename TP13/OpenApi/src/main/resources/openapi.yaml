@@ -1,0 +1,46 @@
+openapi: 3.0.1
+paths:
+  /message:
+    post:
+      summary: Display the message
+      description: Display the message in parameter
+      operationId: displayMessage
+      parameters:
+      - name: message
+        in: path
+        description: message
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: The message
+          content:
+            text/plain: {}
+  /home:
+    get:
+      summary: Home page
+      description: Sert a rien pour l'instant
+      operationId: home
+      responses:
+        default:
+          description: The sentence
+          content:
+            text/plain: {}
+  /hello/{name}:
+    get:
+      summary: Say hello to ...
+      description: Say hello to the name in parameters
+      operationId: sayHello
+      parameters:
+      - name: name
+        in: path
+        description: Votre prenom
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: The sentence
+          content:
+            text/plain: {}

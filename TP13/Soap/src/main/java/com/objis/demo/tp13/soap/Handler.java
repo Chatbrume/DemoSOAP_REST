@@ -13,9 +13,9 @@ import javax.xml.ws.handler.soap.SOAPMessageContext;
 import java.io.IOException;
 import java.util.Set;
 
-public class HelloHandler implements SOAPHandler<SOAPMessageContext>
+public class Handler implements SOAPHandler<SOAPMessageContext>
 {
-    private static final Logger LOGGER = LogManager.getLogger(HelloHandler.class);
+    private static final Logger LOGGER = LogManager.getLogger(Handler.class);
     @Override
     public Set<QName> getHeaders() {
         return null;
@@ -35,13 +35,13 @@ public class HelloHandler implements SOAPHandler<SOAPMessageContext>
             String content = message.getSOAPBody().getTextContent();
 
             if( methode.contains("Response") )
-                System.out.println("Response: "+content);
+                LOGGER.info("Response: "+content);
             else
-                System.out.println("Request: "+methode+"("+content+")");
+                LOGGER.info("Request: "+methode+"("+content+")");
         }
         catch(SOAPException | IOException ex)
         {
-            LOGGER.info(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
             return false;
         }
         return true;
@@ -53,7 +53,5 @@ public class HelloHandler implements SOAPHandler<SOAPMessageContext>
     }
 
     @Override
-    public void close(MessageContext messageContext) {
-
-    }
+    public void close(MessageContext messageContext) {}
 }

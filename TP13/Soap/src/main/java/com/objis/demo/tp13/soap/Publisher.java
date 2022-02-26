@@ -2,13 +2,13 @@ package com.objis.demo.tp13.soap;
 
 import javax.xml.ws.Endpoint;
 
-public class HelloPublisher
+public class Publisher
 {
-	public static final String URI = "http://localhost:8888/hello" ;
-			
+	public static final String URI = "http://localhost:8888/demosoaprest";
+
 	public static void main(String[] args)
 	{
-		HelloSoapServer impl = new HelloSoapServer();
+		SoapServer impl = new SoapServer();
 		
 		Endpoint endpoint = Endpoint.publish(URI, impl);
 		

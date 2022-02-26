@@ -13,11 +13,51 @@
     <artifactId>TP13</artifactId>
     <packaging>pom</packaging>
 
-    <url>http://localhost:8080/demosoaprest</url>
+    <properties>
+        <maven.plugin.package.version>3.2.2</maven.plugin.package.version>
+        <jersey.version>2.19</jersey.version>
+    </properties>
 
     <modules>
         <module>Rest</module>
         <module>Soap</module>
         <module>Client</module>
+        <module>OpenApi</module>
     </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <configuration>
+                        <directory>RELEASE</directory>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven.plugin.package.version}</version>
+                    <configuration>
+                        <outputDirectory>
+                            RELEASE/
+                        </outputDirectory>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven.plugin.package.version}</version>
+                    <configuration>
+                        <outputDirectory>
+                            RELEASE/
+                        </outputDirectory>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
